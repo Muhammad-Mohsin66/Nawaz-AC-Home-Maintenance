@@ -127,9 +127,14 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="text-xs text-slate-400 block">العنوان الوطني المعتمد:</span>
-                  <span className="text-slate-300 text-xs leading-relaxed block">
-                    حي الندى، طريق الثمامة، الرياض 13317 (RADC3169)
-                  </span>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=7251+Al+Nafl+Al+Yasmin+Riyadh+13325"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 hover:text-amber-300 text-xs leading-relaxed block transition-colors"
+                  >
+                    7251 النفل، 4362، حي الياسمين، الرياض 13325 (RAYB7251)
+                  </a>
                 </div>
               </li>
             </ul>

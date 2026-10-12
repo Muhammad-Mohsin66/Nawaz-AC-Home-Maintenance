@@ -29,12 +29,12 @@ const officialDocs = [
     id: 'address',
     title: 'إثبات العنوان الوطني الرسمي',
     entity: 'مؤسسة البريد السعودي (سبل SPL)',
-    number: 'RADC3169',
-    unifiedNumber: 'الرمز البريدي: 13317',
+    number: 'RAYB7251',
+    unifiedNumber: 'الرمز البريدي: 13325',
     filePath: `${import.meta.env.BASE_URL}documents/national-address.jpeg`,
     type: 'image',
     badge: 'عنوان موثق',
-    description: 'مبنى 3169، طريق الثمامة، حي الندى، الرياض 13317 - الرقم الإضافي: 8313.',
+    description: '7251 النفل، 4362، حي الياسمين، الرياض 13325، المملكة العربية السعودية.',
   },
 ];
 
@@ -75,7 +75,7 @@ export default function TrustAndTeam() {
           </div>
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center shadow-xs">
             <span className="text-xs text-slate-500 font-semibold block mb-1">العنوان الوطني المختصر</span>
-            <span className="text-xl sm:text-2xl font-black text-emerald-700 tracking-wider" dir="ltr">RADC3169</span>
+            <span className="text-xl sm:text-2xl font-black text-emerald-700 tracking-wider" dir="ltr">RAYB7251</span>
           </div>
         </div>
 
