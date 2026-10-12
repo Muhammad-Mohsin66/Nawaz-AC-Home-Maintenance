@@ -45,8 +45,18 @@ export default function HeroSection({ onSelectService }) {
             </p>
 
             {/* Trust Badges - Luxury Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2">
-              <div className="flex items-center gap-3 p-3 rounded-2xl glass-card-dark border border-cyan-500/20">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-amber-500/30">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-black text-sm">
+                  15+
+                </div>
+                <div className="text-right">
+                  <span className="text-xs sm:text-sm font-bold text-white block">خبرة 15 عاماً</span>
+                  <span className="text-[11px] text-amber-300/80">في هذا المجال</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-cyan-500/20">
                 <div className="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
@@ -56,7 +66,7 @@ export default function HeroSection({ onSelectService }) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 p-3 rounded-2xl glass-card-dark border border-blue-500/20">
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-blue-500/20">
                 <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -66,8 +76,8 @@ export default function HeroSection({ onSelectService }) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 p-3 rounded-2xl glass-card-dark border border-amber-500/20 col-span-2 sm:col-span-1">
-                <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-emerald-500/20">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="text-right">
@@ -221,7 +231,7 @@ export default function HeroSection({ onSelectService }) {
                 <Award className="w-5 h-5" />
               </div>
               <div className="text-right">
-                <div className="text-xs font-bold text-white">إشراف فني متخصص بالرياض</div>
+                <div className="text-xs font-bold text-white">إشراف فني متخصص — خبرة 15 عاماً بالمجال</div>
                 <div className="text-xs text-cyan-300 font-semibold">م. نواز أمين (M. Nawaz Ameen)</div>
               </div>
             </div>

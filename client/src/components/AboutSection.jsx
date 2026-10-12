@@ -57,6 +57,17 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Floating 15+ Years Experience Badge */}
+              <div className="absolute -bottom-4 -left-3 sm:-left-6 glass-card-dark rounded-2xl p-3.5 shadow-2xl border border-amber-400/50 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 shadow-md font-black text-lg">
+                  15+
+                </div>
+                <div className="text-right">
+                  <div className="text-sm font-black text-white">خبرة تتجاوز 15 عاماً</div>
+                  <div className="text-[11px] text-amber-300 font-semibold">احترافية معتمدة في هذا المجال</div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -70,16 +81,16 @@ export default function AboutSection() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-500/40 text-xs sm:text-sm font-bold">
               <Sparkles className="w-4 h-4 text-cyan-400" />
-              <span>نبذة عن المؤسسة</span>
+              <span>خبرة ميدانية تتجاوز 15 عاماً</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug">
               نواز لصيانة المكيفات والخدمات المنزلية —{' '}
-              <span className="blue-gradient-text">خبرة وإتقان وثقة</span>
+              <span className="blue-gradient-text">15 عاماً من الخبرة والإتقان</span>
             </h2>
 
             <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-              تأسست مؤسسة نواز في مدينة الرياض لتقديم خدمات الصيانة والإصلاح والتركيب للمنازل والشقق والمرافق السكنية والتجارية. نضع راحة العميل في مقدمة أولوياتنا من خلال توفير حلول هندسية وفنية متكاملة تغطي التكييف والكهرباء والسباكة والصيانة العامة.
+              بخبرة تزيد عن 15 عاماً في قطاع صيانة وتركيب المكيفات والأعمال الكهربائية والسباكة والصيانة العامة بالرياض، تقدم مؤسسة نواز لعملائها أرقى مستويات الخدمة والاحترافية. نضع راحة العميل وسلامة منزله في مقدمة أولوياتنا من خلال توفير حلول هندسية وفنية دقيقة وموثوقة.
             </p>
 
             <div className="space-y-4 pt-2">
