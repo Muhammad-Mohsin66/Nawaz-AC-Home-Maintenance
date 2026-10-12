@@ -20,7 +20,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-cairo">
+    <div className="min-h-screen bg-[#080e1a] text-slate-100 flex flex-col font-cairo">
       {/* Sticky Glass Navbar */}
       <Navbar />
 
@@ -48,19 +48,19 @@ export default function App() {
       <Footer />
 
       {/* Floating Mobile Fast-Action Bar (Fixed at bottom for smartphones) */}
-      <div className="fixed bottom-0 inset-x-0 sm:hidden z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 flex gap-2 shadow-2xl">
+      <div className="fixed bottom-0 inset-x-0 sm:hidden z-40 bg-[#081226]/95 backdrop-blur-xl border-t border-cyan-500/30 p-3 flex gap-2.5 shadow-2xl">
         <a
           href="tel:+966543729238"
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold text-sm active:scale-95 transition-transform"
         >
-          <Phone className="w-4 h-4 text-blue-400" />
+          <Phone className="w-4 h-4 text-cyan-400" />
           <span>اتصال مباشر</span>
         </a>
         <a
           href="https://wa.me/966543729238"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow-md active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold text-sm shadow-md active:scale-95 transition-transform border border-emerald-400/30"
         >
           <MessageCircle className="w-4 h-4" />
           <span>واتساب فوري</span>

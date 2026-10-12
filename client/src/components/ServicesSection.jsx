@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wind, Zap, Droplets, Home, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { Wind, Zap, Droplets, Home, CheckCircle2, ArrowLeft, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const servicesData = [
@@ -8,10 +8,13 @@ const servicesData = [
     title: 'خدمات التكييف',
     subtitle: 'صيانة وإصلاح وتركيب وغسيل لكافة أنواع المكيفات',
     icon: Wind,
-    color: 'from-blue-600 to-cyan-500',
-    borderColor: 'border-blue-200 hover:border-blue-500',
+    accentColor: 'text-cyan-400',
+    iconGradient: 'from-cyan-500 to-blue-600',
+    cardBorder: 'border-cyan-500/30 hover:border-cyan-400',
+    cardGlow: 'hover:shadow-[0_0_30px_rgba(6,182,212,0.25)]',
     badge: 'الأكثر طلباً',
-    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
+    badgeColor: 'bg-cyan-950/80 text-cyan-300 border-cyan-500/40',
+    btnGradient: 'from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500',
     items: [
       'إصلاح وتشخيص أعطال المكيفات بدقة عالية',
       'صيانة وقائية ودورية للمكيفات المنزلية والتجارية',
@@ -27,10 +30,13 @@ const servicesData = [
     title: 'خدمات الكهرباء',
     subtitle: 'حلول كهربائية آمنة ومعتمدة للمنازل والمنشآت',
     icon: Zap,
-    color: 'from-amber-500 to-yellow-500',
-    borderColor: 'border-amber-200 hover:border-amber-500',
+    accentColor: 'text-amber-400',
+    iconGradient: 'from-amber-500 to-orange-600',
+    cardBorder: 'border-amber-500/30 hover:border-amber-400',
+    cardGlow: 'hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]',
     badge: 'سلامة وأمان',
-    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+    badgeColor: 'bg-amber-950/80 text-amber-300 border-amber-500/40',
+    btnGradient: 'from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500',
     items: [
       'تشخيص وإصلاح كافة الأعطال والشورت الكهربائي',
       'تركيب المفاتيح، الأفياش، والإنارة الداخلية والخارجية',
@@ -44,10 +50,13 @@ const servicesData = [
     title: 'خدمات السباكة',
     subtitle: 'معالجة التسربات وتأسيس وصيانة شبكات المياه',
     icon: Droplets,
-    color: 'from-cyan-600 to-blue-500',
-    borderColor: 'border-cyan-200 hover:border-cyan-500',
+    accentColor: 'text-blue-400',
+    iconGradient: 'from-blue-500 to-indigo-600',
+    cardBorder: 'border-blue-500/30 hover:border-blue-400',
+    cardGlow: 'hover:shadow-[0_0_30px_rgba(59,130,246,0.25)]',
     badge: 'كفاءة وسرعة',
-    badgeColor: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    badgeColor: 'bg-blue-950/80 text-blue-300 border-blue-500/40',
+    btnGradient: 'from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500',
     items: [
       'كشف ومعالجة تسربات المياه في المطابخ والحمامات',
       'إصلاح واستبدال الأنابيب والمحابس التالفة',
@@ -61,10 +70,13 @@ const servicesData = [
     title: 'خدمات الصيانة المنزلية',
     subtitle: 'صيانة دورية وحلول شاملة للحفاظ على راحة منزلك',
     icon: Home,
-    color: 'from-indigo-600 to-blue-600',
-    borderColor: 'border-indigo-200 hover:border-indigo-500',
+    accentColor: 'text-teal-400',
+    iconGradient: 'from-teal-500 to-emerald-600',
+    cardBorder: 'border-teal-500/30 hover:border-teal-400',
+    cardGlow: 'hover:shadow-[0_0_30px_rgba(20,184,166,0.25)]',
     badge: 'شامل ومتكامل',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    badgeColor: 'bg-teal-950/80 text-teal-300 border-teal-500/40',
+    btnGradient: 'from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500',
     items: [
       'صيانة روتينية شاملة لمرافق العقار والمنزل',
       'زيارات فحص دورية وقائية لتجنب الأعطال المفاجئة',
@@ -77,18 +89,22 @@ const servicesData = [
 
 export default function ServicesSection({ onSelectService }) {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-24 bg-[#0a1428] relative border-t border-slate-800">
+      {/* Background radial highlight */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[800px] h-[500px] bg-blue-900/10 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="text-sm font-bold tracking-wider text-blue-700 uppercase bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/60 inline-block">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-cyan-300 uppercase bg-cyan-950/80 px-4 py-1.5 rounded-full border border-cyan-500/30 inline-flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
             خدمات متكاملة في الرياض
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            حلول متكاملة للتكييف والكهرباء والسباكة والصيانة
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            حلول شاملة <span className="blue-gradient-text">للتكييف والكهرباء والسباكة</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             نقدم باقة واسعة من خدمات الصيانة المنزلية المتخصصة بأيدي فنيين محترفين مع التزام تام بالجودة والدقة والمواعيد.
           </p>
         </div>
@@ -100,50 +116,50 @@ export default function ServicesSection({ onSelectService }) {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`flex flex-col justify-between rounded-2xl p-6 bg-slate-50/60 border ${service.borderColor} transition-all duration-300 hover:shadow-xl hover:bg-white group`}
+                className={`flex flex-col justify-between rounded-3xl p-6 bg-gradient-to-b from-[#0f2142]/90 to-[#0c1833]/90 border ${service.cardBorder} transition-all duration-300 ${service.cardGlow} hover:-translate-y-1.5 group backdrop-blur-md`}
               >
                 <div>
                   {/* Card Header & Icon */}
                   <div className="flex items-center justify-between mb-5">
-                    <div className={`w-13 h-13 rounded-xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.iconGradient} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                       <Icon className="w-7 h-7" />
                     </div>
-                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${service.badgeColor}`}>
+                    <span className={`text-xs font-bold px-3 py-1 rounded-full border ${service.badgeColor}`}>
                       {service.badge}
                     </span>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl font-black text-slate-900 mb-2">
+                  <h3 className="text-xl font-black text-white mb-2 group-hover:text-cyan-300 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
                     {service.subtitle}
                   </p>
 
                   {/* Checklist of Services */}
-                  <ul className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+                  <ul className="space-y-3 mb-8 text-xs sm:text-sm text-slate-300">
                     {service.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                        <span>{item}</span>
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <CheckCircle2 className={`w-4 h-4 ${service.accentColor} shrink-0 mt-0.5`} />
+                        <span className="leading-snug">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Booking Button */}
-                <div className="pt-4 border-t border-slate-200/80">
+                <div className="pt-4 border-t border-slate-700/60">
                   <button
                     onClick={() => onSelectService(service.title)}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white border border-slate-300 text-slate-900 font-bold text-sm group-hover:bg-blue-700 group-hover:text-white group-hover:border-blue-700 transition-all shadow-xs cursor-pointer"
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r ${service.btnGradient} text-white font-bold text-sm shadow-lg transition-all cursor-pointer`}
                   >
                     <span>احجز الخدمة</span>
-                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
                   </button>
                 </div>
               </motion.div>

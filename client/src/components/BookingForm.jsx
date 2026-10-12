@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Phone, User, MapPin, Wrench, FileText, CheckCircle2, AlertCircle, Loader2, MessageCircle, RefreshCw } from 'lucide-react';
+import { Calendar, Phone, User, MapPin, Wrench, FileText, CheckCircle2, AlertCircle, Loader2, MessageCircle, RefreshCw, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const riyadhDistricts = [
@@ -68,7 +68,6 @@ export default function BookingForm({ selectedService, setSelectedService }) {
   // Sync if selectedService prop changes
   React.useEffect(() => {
     if (selectedService) {
-      // Find matching option or set directly
       const matched = serviceOptions.find((opt) => opt.includes(selectedService)) || selectedService;
       setFormData((prev) => ({ ...prev, serviceType: matched }));
     }
@@ -203,25 +202,28 @@ export default function BookingForm({ selectedService, setSelectedService }) {
   };
 
   return (
-    <section id="booking" className="py-20 bg-gradient-to-b from-slate-50 to-blue-50/50">
+    <section id="booking" className="py-24 bg-gradient-to-b from-[#0a1428] to-[#060c18] relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs sm:text-sm font-bold">
-            <Calendar className="w-4 h-4 text-blue-700" />
+        <div className="text-center space-y-4 mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-bold">
+            <Calendar className="w-4 h-4 text-cyan-400" />
             <span>حجز فوري ومباشر</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            احجز موعد الصيانة بكل سهولة
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            احجز موعد الصيانة <span className="blue-gradient-text">بكل سهولة</span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal">
             قم بتعبئة النموذج وسيقوم فريقنا بالتواصل معك لتأكيد الموعد والتفاصيل، أو تواصل فوراً عبر واتساب.
           </p>
         </div>
 
-        {/* Card Frame */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/80">
+        {/* Card Frame with Luxury Navy Background & Cyan Glow */}
+        <div className="bg-gradient-to-b from-[#0e2246] to-[#0a1835] rounded-3xl p-6 sm:p-10 shadow-2xl border border-cyan-500/30 backdrop-blur-xl relative">
           
           {/* Success State Screen */}
           {submitSuccess ? (
@@ -230,38 +232,38 @@ export default function BookingForm({ selectedService, setSelectedService }) {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-8 space-y-6"
             >
-              <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-md">
+              <div className="w-20 h-20 bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/50">
                 <CheckCircle2 className="w-12 h-12" />
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-2xl font-black text-slate-900">
+                <h3 className="text-2xl sm:text-3xl font-black text-white">
                   تم استلام طلب الحجز بنجاح!
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base max-w-md mx-auto">
+                <p className="text-slate-300 text-sm sm:text-base max-w-md mx-auto">
                   {submitSuccess.message}
                 </p>
               </div>
 
               {/* Booking Summary Box */}
-              <div className="max-w-md mx-auto bg-slate-50 rounded-2xl p-5 border border-slate-200 text-right space-y-2.5 text-xs sm:text-sm">
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-500">رقم الحجز المرجعي:</span>
-                  <span className="font-mono font-bold text-blue-700" dir="ltr">
+              <div className="max-w-md mx-auto bg-slate-950/80 rounded-2xl p-5 border border-slate-700 text-right space-y-3 text-xs sm:text-sm">
+                <div className="flex justify-between border-b border-slate-800 pb-2.5">
+                  <span className="text-slate-400">رقم الحجز المرجعي:</span>
+                  <span className="font-mono font-bold text-cyan-400" dir="ltr">
                     {submitSuccess.booking.id}
                   </span>
                 </div>
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-500">الاسم:</span>
-                  <span className="font-bold text-slate-800">{submitSuccess.customerData.customerName}</span>
+                <div className="flex justify-between border-b border-slate-800 pb-2.5">
+                  <span className="text-slate-400">الاسم:</span>
+                  <span className="font-bold text-white">{submitSuccess.customerData.customerName}</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-200/60 pb-2">
-                  <span className="text-slate-500">الخدمة:</span>
-                  <span className="font-bold text-slate-800">{submitSuccess.customerData.serviceType}</span>
+                <div className="flex justify-between border-b border-slate-800 pb-2.5">
+                  <span className="text-slate-400">الخدمة:</span>
+                  <span className="font-bold text-white">{submitSuccess.customerData.serviceType}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">الحي:</span>
-                  <span className="font-bold text-slate-800">{submitSuccess.customerData.district}</span>
+                  <span className="text-slate-400">الحي:</span>
+                  <span className="font-bold text-white">{submitSuccess.customerData.district}</span>
                 </div>
               </div>
 
@@ -271,14 +273,14 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                   href={buildWhatsAppUrl(submitSuccess.customerData)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all"
+                  className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-sm shadow-lg shadow-emerald-950/40 transition-all border border-emerald-400/30"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>تأكيد الموعد عبر واتساب</span>
                 </a>
                 <button
                   onClick={handleResetForm}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-sm transition-colors cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-4 px-5 rounded-xl border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white font-bold text-sm transition-colors cursor-pointer"
                 >
                   <RefreshCw className="w-4 h-4" />
                   <span>حجز موعد جديد</span>
@@ -291,18 +293,18 @@ export default function BookingForm({ selectedService, setSelectedService }) {
               
               {/* Error Notice */}
               {submitError && (
-                <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 flex items-start gap-3 text-sm">
-                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-2xl bg-rose-950/80 border border-rose-500/40 text-rose-200 flex items-start gap-3 text-sm">
+                  <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <p className="font-bold mb-1">تعذر حفظ الحجز عبر الخادم:</p>
-                    <p className="text-xs sm:text-sm text-rose-700 mb-2">{submitError}</p>
+                    <p className="text-xs sm:text-sm text-rose-300 mb-2">{submitError}</p>
                     <a
                       href={buildWhatsAppUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 bg-white px-3 py-1.5 rounded-lg border border-emerald-300 hover:bg-emerald-50 transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-emerald-300 bg-slate-900 px-3 py-1.5 rounded-lg border border-emerald-500/40 hover:bg-slate-800 transition-colors"
                     >
-                      <MessageCircle className="w-4 h-4 text-emerald-600" />
+                      <MessageCircle className="w-4 h-4 text-emerald-400" />
                       <span>إرسال تفاصيل الحجز عبر واتساب كبديل مباشر</span>
                     </a>
                   </div>
@@ -312,9 +314,9 @@ export default function BookingForm({ selectedService, setSelectedService }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 {/* Full Name */}
-                <div className="space-y-1.5 text-right">
-                  <label htmlFor="customerName" className="block text-sm font-bold text-slate-800">
-                    الاسم الكامل <span className="text-rose-500">*</span>
+                <div className="space-y-2 text-right">
+                  <label htmlFor="customerName" className="block text-sm font-bold text-white">
+                    الاسم الكامل <span className="text-rose-400">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -324,22 +326,22 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                       value={formData.customerName}
                       onChange={handleChange}
                       placeholder="مثال: عبد الله السعدي"
-                      className={`w-full py-3 pr-10 pl-4 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all ${
-                        errors.customerName ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                      className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-950/80 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:ring-2 focus:bg-slate-900 transition-all ${
+                        errors.customerName ? 'border-rose-500 focus:ring-rose-500/20' : 'border-slate-700 focus:border-cyan-400 focus:ring-cyan-500/20'
                       }`}
                       disabled={loading}
                     />
-                    <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5" />
+                    <User className="w-4 h-4 text-cyan-400 absolute right-4 top-4" />
                   </div>
                   {errors.customerName && (
-                    <p className="text-xs text-rose-600 font-semibold">{errors.customerName}</p>
+                    <p className="text-xs text-rose-400 font-semibold">{errors.customerName}</p>
                   )}
                 </div>
 
                 {/* Phone Number */}
-                <div className="space-y-1.5 text-right">
-                  <label htmlFor="phoneNumber" className="block text-sm font-bold text-slate-800">
-                    رقم الجوال <span className="text-rose-500">*</span>
+                <div className="space-y-2 text-right">
+                  <label htmlFor="phoneNumber" className="block text-sm font-bold text-white">
+                    رقم الجوال <span className="text-rose-400">*</span>
                   </label>
                   <div className="relative">
                     <input
@@ -350,22 +352,22 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                       onChange={handleChange}
                       placeholder="05XXXXXXXX أو +9665XXXXXXXX"
                       dir="ltr"
-                      className={`w-full py-3 pr-4 pl-10 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white text-right transition-all ${
-                        errors.phoneNumber ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                      className={`w-full py-3.5 pr-4 pl-11 rounded-xl border bg-slate-950/80 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:ring-2 focus:bg-slate-900 text-right transition-all ${
+                        errors.phoneNumber ? 'border-rose-500 focus:ring-rose-500/20' : 'border-slate-700 focus:border-cyan-400 focus:ring-cyan-500/20'
                       }`}
                       disabled={loading}
                     />
-                    <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Phone className="w-4 h-4 text-cyan-400 absolute left-4 top-4" />
                   </div>
                   {errors.phoneNumber && (
-                    <p className="text-xs text-rose-600 font-semibold">{errors.phoneNumber}</p>
+                    <p className="text-xs text-rose-400 font-semibold">{errors.phoneNumber}</p>
                   )}
                 </div>
 
                 {/* Service Type Selection */}
-                <div className="space-y-1.5 text-right">
-                  <label htmlFor="serviceType" className="block text-sm font-bold text-slate-800">
-                    الخدمة المطلوبة <span className="text-rose-500">*</span>
+                <div className="space-y-2 text-right">
+                  <label htmlFor="serviceType" className="block text-sm font-bold text-white">
+                    الخدمة المطلوبة <span className="text-rose-400">*</span>
                   </label>
                   <div className="relative">
                     <select
@@ -373,29 +375,29 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                       name="serviceType"
                       value={formData.serviceType}
                       onChange={handleChange}
-                      className={`w-full py-3 pr-10 pl-4 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all appearance-none ${
-                        errors.serviceType ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                      className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-950/80 text-white text-sm focus:outline-hidden focus:ring-2 focus:bg-slate-900 transition-all appearance-none ${
+                        errors.serviceType ? 'border-rose-500 focus:ring-rose-500/20' : 'border-slate-700 focus:border-cyan-400 focus:ring-cyan-500/20'
                       }`}
                       disabled={loading}
                     >
-                      <option value="">-- اختر نوع الخدمة --</option>
+                      <option value="" className="bg-slate-900 text-slate-300">-- اختر نوع الخدمة --</option>
                       {serviceOptions.map((opt, idx) => (
-                        <option key={idx} value={opt}>
+                        <option key={idx} value={opt} className="bg-slate-900 text-white">
                           {opt}
                         </option>
                       ))}
                     </select>
-                    <Wrench className="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5 pointer-events-none" />
+                    <Wrench className="w-4 h-4 text-cyan-400 absolute right-4 top-4 pointer-events-none" />
                   </div>
                   {errors.serviceType && (
-                    <p className="text-xs text-rose-600 font-semibold">{errors.serviceType}</p>
+                    <p className="text-xs text-rose-400 font-semibold">{errors.serviceType}</p>
                   )}
                 </div>
 
                 {/* District in Riyadh */}
-                <div className="space-y-1.5 text-right">
-                  <label htmlFor="district" className="block text-sm font-bold text-slate-800">
-                    الحي في الرياض <span className="text-rose-500">*</span>
+                <div className="space-y-2 text-right">
+                  <label htmlFor="district" className="block text-sm font-bold text-white">
+                    الحي في الرياض <span className="text-rose-400">*</span>
                   </label>
                   <div className="relative">
                     <select
@@ -403,19 +405,19 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                       name="district"
                       value={formData.district}
                       onChange={handleChange}
-                      className={`w-full py-3 pr-10 pl-4 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all appearance-none ${
-                        errors.district ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                      className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-950/80 text-white text-sm focus:outline-hidden focus:ring-2 focus:bg-slate-900 transition-all appearance-none ${
+                        errors.district ? 'border-rose-500 focus:ring-rose-500/20' : 'border-slate-700 focus:border-cyan-400 focus:ring-cyan-500/20'
                       }`}
                       disabled={loading}
                     >
-                      <option value="">-- اختر الحي في الرياض --</option>
+                      <option value="" className="bg-slate-900 text-slate-300">-- اختر الحي في الرياض --</option>
                       {riyadhDistricts.map((dist, idx) => (
-                        <option key={idx} value={dist}>
+                        <option key={idx} value={dist} className="bg-slate-900 text-white">
                           {dist}
                         </option>
                       ))}
                     </select>
-                    <MapPin className="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5 pointer-events-none" />
+                    <MapPin className="w-4 h-4 text-cyan-400 absolute right-4 top-4 pointer-events-none" />
                   </div>
                   {formData.district === 'أخرى / حي آخر في الرياض' && (
                     <input
@@ -424,20 +426,20 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                       value={formData.customDistrict}
                       onChange={handleChange}
                       placeholder="اكتب اسم الحي الخاص بك في الرياض..."
-                      className="mt-2 w-full py-2.5 px-3 rounded-lg border border-slate-300 text-sm bg-white"
+                      className="mt-2.5 w-full py-3 px-4 rounded-xl border border-slate-700 bg-slate-950 text-white placeholder-slate-500 text-sm"
                       disabled={loading}
                     />
                   )}
                   {errors.district && (
-                    <p className="text-xs text-rose-600 font-semibold">{errors.district}</p>
+                    <p className="text-xs text-rose-400 font-semibold">{errors.district}</p>
                   )}
                 </div>
 
               </div>
 
               {/* Additional Notes */}
-              <div className="space-y-1.5 text-right">
-                <label htmlFor="notes" className="block text-sm font-bold text-slate-800">
+              <div className="space-y-2 text-right">
+                <label htmlFor="notes" className="block text-sm font-bold text-white">
                   ملاحظات إضافية أو وصف العطل <span className="text-xs text-slate-400 font-normal">(اختياري)</span>
                 </label>
                 <div className="relative">
@@ -448,19 +450,19 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                     value={formData.notes}
                     onChange={handleChange}
                     placeholder="مثال: المكيف يخرج هواء حار فقط، أو يوجد تسرب تحت حوض المطبخ..."
-                    className="w-full py-3 pr-10 pl-4 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:border-blue-600 focus:ring-blue-100 focus:bg-white transition-all"
+                    className="w-full py-3.5 pr-11 pl-4 rounded-xl border border-slate-700 bg-slate-950/80 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:ring-2 focus:border-cyan-400 focus:ring-cyan-500/20 focus:bg-slate-900 transition-all"
                     disabled={loading}
                   />
-                  <FileText className="w-4 h-4 text-slate-400 absolute right-3.5 top-3.5" />
+                  <FileText className="w-4 h-4 text-cyan-400 absolute right-4 top-4" />
                 </div>
               </div>
 
               {/* Submit Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-3 flex flex-col sm:flex-row gap-3.5">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-blue-700 hover:bg-blue-800 disabled:bg-blue-400 text-white font-black text-base shadow-lg shadow-blue-700/25 transition-all cursor-pointer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 disabled:opacity-50 text-white font-black text-base shadow-xl shadow-blue-900/40 transition-all cursor-pointer border border-cyan-300/30"
                 >
                   {loading ? (
                     <>
@@ -469,7 +471,7 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                     </>
                   ) : (
                     <>
-                      <Calendar className="w-5 h-5" />
+                      <Calendar className="w-5 h-5 text-cyan-200" />
                       <span>تأكيد إرسال طلب الحجز</span>
                     </>
                   )}
@@ -479,14 +481,14 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                   href={buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-md transition-all"
+                  className="inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-base shadow-lg shadow-emerald-950/40 transition-all border border-emerald-400/30"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>حجز فوري عبر واتساب</span>
                 </a>
               </div>
 
-              <div className="text-center text-xs text-slate-500 pt-2">
+              <div className="text-center text-xs text-slate-400 pt-2">
                 🔒 بياناتك محفوظة بأمان وسرية تامة ولا يتم مشاركتها مع أي جهة خارجية.
               </div>
 
