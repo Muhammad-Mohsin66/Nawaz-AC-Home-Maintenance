@@ -20,7 +20,7 @@ export default function AboutSection() {
               {/* Technician Photo Frame */}
               <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200 relative aspect-[9/16] max-h-[500px]">
                 <img
-                  src="/images/technician.jpg"
+                  src={`${import.meta.env.BASE_URL}images/technician.jpg`}
                   alt="م. نواز أمين - المشرف الفني على أعمال الصيانة"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
@@ -41,7 +41,7 @@ export default function AboutSection() {
               {/* Floating Verified Logo Card */}
               <div className="absolute -top-4 -right-4 sm:-right-6 bg-white rounded-2xl p-3 shadow-xl border border-slate-200 flex items-center gap-3">
                 <img
-                  src="/images/logo.jpeg"
+                  src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
                   alt="شعار مؤسسة نواز"
                   className="w-12 h-12 rounded-xl object-cover ring-2 ring-blue-500/30"
                 />

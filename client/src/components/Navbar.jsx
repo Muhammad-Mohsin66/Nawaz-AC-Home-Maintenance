@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* Logo & Brand Name */}
           <a href="#hero" className="flex items-center gap-3 group">
             <img
-              src="/images/logo.jpeg"
+              src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
               alt="شعار نواز لصيانة المكيفات والخدمات المنزلية"
               className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover shadow-sm ring-2 ring-blue-600/20 group-hover:ring-blue-600 transition-all"
             />

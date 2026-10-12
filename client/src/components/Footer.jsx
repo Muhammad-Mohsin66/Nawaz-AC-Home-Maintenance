@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4 text-right">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.jpeg"
+                src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
                 alt="شعار نواز للصيانة"
                 className="w-14 h-14 rounded-full object-cover ring-2 ring-blue-500/40"
               />

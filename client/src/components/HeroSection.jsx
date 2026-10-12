@@ -126,7 +126,7 @@ export default function HeroSection({ onSelectService }) {
             <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-slate-900 aspect-[9/16] max-h-[520px] mx-auto max-w-[340px] sm:max-w-[360px] group">
               {!videoError ? (
                 <video
-                  src="/videos/promo.mp4"
+                  src={`${import.meta.env.BASE_URL}videos/promo.mp4`}
                   controls
                   playsInline
                   preload="metadata"
