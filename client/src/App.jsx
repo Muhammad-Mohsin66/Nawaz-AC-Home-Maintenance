@@ -20,7 +20,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080e1a] text-slate-100 flex flex-col font-cairo">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-cairo">
       {/* Sticky Glass Navbar */}
       <Navbar />
 

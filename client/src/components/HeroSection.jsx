@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, Calendar, ShieldCheck, Clock, MapPin, Play, Award, CheckCircle2, Sparkles, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Phone, MessageCircle, Calendar, ShieldCheck, Clock, MapPin, Play, Award, CheckCircle2, Sparkles, Maximize2, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function HeroSection({ onSelectService }) {
   const [videoError, setVideoError] = useState(false);
+  const [logoModalOpen, setLogoModalOpen] = useState(false);
 
   return (
-    <section id="hero" className="relative pt-28 pb-16 lg:pt-36 lg:pb-28 overflow-hidden bg-gradient-to-b from-[#061022] via-[#0a1936] to-[#080e1a]">
+    <section id="hero" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#061022] via-[#091836] to-[#081226]">
       {/* Dynamic atmospheric light glows */}
       <div className="absolute top-1/4 right-5 -z-10 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/3 left-10 -z-10 w-[450px] h-[450px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-5 right-1/3 -z-10 w-[350px] h-[350px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Subtle geometric grid background */}
+      {/* Subtle geometric tech grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:28px_28px] opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
           {/* Right Column: Hero Content */}
           <motion.div
@@ -25,8 +26,8 @@ export default function HeroSection({ onSelectService }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 text-right space-y-6"
           >
-            {/* Top Verified Tag with Neon Edge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-bold shadow-lg shadow-cyan-950/40">
+            {/* Top Verified Tag with Neon Edge & Logo Preview */}
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-bold shadow-lg shadow-cyan-950/40">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
               <ShieldCheck className="w-4 h-4 text-cyan-400" />
               <span>مؤسسة مرخصة رسمياً في الرياض • س.ت: 1010469561</span>
@@ -43,7 +44,7 @@ export default function HeroSection({ onSelectService }) {
               نقدم خدمات الصيانة والإصلاح والتركيب للمنازل، مع سهولة الحجز والتواصل المباشر بأعلى معايير الإتقان والدقة في جميع أحياء العاصمة.
             </p>
 
-            {/* Trust Badges - Luxury Dark Cards */}
+            {/* Trust Badges - Luxury Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2">
               <div className="flex items-center gap-3 p-3 rounded-2xl glass-card-dark border border-cyan-500/20">
                 <div className="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
@@ -100,7 +101,7 @@ export default function HeroSection({ onSelectService }) {
                 href="tel:+966543729238"
                 className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white font-bold text-base transition-all"
               >
-                <Phone className="w-5 h-5 text-cyan-400" />
+                <Phone className="w-4 h-4 text-cyan-400" />
                 <span dir="ltr">054 372 9238</span>
               </a>
             </div>
@@ -138,18 +139,56 @@ export default function HeroSection({ onSelectService }) {
             </div>
           </motion.div>
 
-          {/* Left Column: Media Showcase (Promotional Video with Neon Edge) */}
+          {/* Left Column: Prominent Media Showcase (Official Logo + Promotional Video) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 space-y-4"
           >
-            {/* Ambient Cyan/Blue Backlight glow for video */}
-            <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-blue-600/30 to-cyan-400/30 rounded-3xl blur-2xl transform scale-105" />
+            {/* 1. Prominent Official 3D Logo Showcase Card */}
+            <div className="relative rounded-3xl p-4 bg-gradient-to-br from-[#0e244d] to-[#08152e] border-2 border-cyan-400/40 shadow-2xl overflow-hidden group">
+              <div className="flex items-center gap-4">
+                {/* Logo Image */}
+                <div
+                  onClick={() => setLogoModalOpen(true)}
+                  className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-xl ring-2 ring-cyan-400/60 shrink-0 cursor-pointer group-hover:scale-105 transition-transform bg-white p-1"
+                  title="انقر لتكبير الشعار"
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
+                    alt="شعار مؤسسة نواز لصيانة المكيفات والخدمات المنزلية"
+                    className="w-full h-full object-contain rounded-xl"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-xl">
+                    <Maximize2 className="w-5 h-5 text-white" />
+                  </div>
+                </div>
 
-            {/* Video Container Frame */}
-            <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl bg-slate-950 aspect-[9/16] max-h-[520px] mx-auto max-w-[340px] sm:max-w-[360px] group">
+                {/* Logo Brand Details */}
+                <div className="text-right flex-1">
+                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 inline-block mb-1">
+                    الشعار والهوية المعتمدة
+                  </span>
+                  <h3 className="text-base sm:text-lg font-black text-white leading-snug">
+                    نواز لصيانة المكيفات والخدمات المنزلية
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-1">
+                    المؤسسة المعتمدة لأعمال التكييف والسباكة والكهرباء بالرياض
+                  </p>
+                  <button
+                    onClick={() => setLogoModalOpen(true)}
+                    className="mt-2 inline-flex items-center gap-1.5 text-xs text-cyan-300 hover:text-white font-bold cursor-pointer"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span>عرض الشعار بحجم كامل</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Promotional Video Frame */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl bg-slate-950 aspect-[9/16] max-h-[460px] mx-auto max-w-[340px] sm:max-w-[360px] group">
               {!videoError ? (
                 <video
                   src={`${import.meta.env.BASE_URL}videos/promo.mp4`}
@@ -177,19 +216,56 @@ export default function HeroSection({ onSelectService }) {
             </div>
 
             {/* Floating Trust Indicator Card */}
-            <div className="hidden sm:flex absolute -bottom-5 -right-5 glass-card-dark p-4 rounded-2xl border border-cyan-400/30 shadow-2xl items-center gap-3.5">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md">
-                <Award className="w-6 h-6" />
+            <div className="hidden sm:flex bg-[#0d1d3a] p-3.5 rounded-2xl border border-cyan-400/30 shadow-xl items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md">
+                <Award className="w-5 h-5" />
               </div>
               <div className="text-right">
-                <div className="text-sm font-bold text-white">إشراف فني متخصص</div>
-                <div className="text-xs text-cyan-400 font-semibold">م. نواز أمين (M. Nawaz Ameen)</div>
+                <div className="text-xs font-bold text-white">إشراف فني متخصص بالرياض</div>
+                <div className="text-xs text-cyan-300 font-semibold">م. نواز أمين (M. Nawaz Ameen)</div>
               </div>
             </div>
           </motion.div>
 
         </div>
       </div>
+
+      {/* High-Res Logo Modal Lightbox */}
+      <AnimatePresence>
+        {logoModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative max-w-lg w-full bg-[#0a1835] rounded-3xl p-6 border-2 border-cyan-400/50 shadow-2xl text-center space-y-4"
+            >
+              <button
+                onClick={() => setLogoModalOpen(false)}
+                className="absolute top-4 left-4 p-2 text-slate-400 hover:text-white rounded-xl bg-slate-900 border border-slate-700 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <h3 className="text-lg font-black text-white">
+                الشعار الرسمي لمؤسسة نواز للصيانة المنزلية
+              </h3>
+
+              <div className="rounded-2xl overflow-hidden bg-white p-4 shadow-xl max-w-sm mx-auto">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
+                  alt="شعار مؤسسة نواز"
+                  className="w-full h-auto object-contain rounded-xl"
+                />
+              </div>
+
+              <p className="text-xs text-cyan-300">
+                هوية رسمية مسجلة • الرياض، المملكة العربية السعودية
+              </p>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
