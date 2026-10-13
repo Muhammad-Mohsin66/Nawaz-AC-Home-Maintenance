@@ -25,6 +25,9 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import com.nawaz.acmaintenanceriyadh.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupWindowInsets()
         setupBackNavigation()
         setupSwipeRefresh()
         setupErrorButtons()
@@ -58,6 +62,27 @@ class MainActivity : AppCompatActivity() {
             loadWebsite()
         } else {
             binding.webView.restoreState(savedInstanceState)
+        }
+    }
+
+    private fun setupWindowInsets() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val insetsController = WindowCompat.getInsetsController(window, window.decorView)
+        insetsController.isAppearanceLightStatusBars = false
+        insetsController.isAppearanceLightNavigationBars = false
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rootContainer) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val displayCutout = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
+            val topInset = maxOf(systemBars.top, displayCutout.top)
+            val bottomInset = maxOf(systemBars.bottom, displayCutout.bottom)
+
+            if (customView == null) {
+                view.setPadding(systemBars.left, topInset, systemBars.right, bottomInset)
+            } else {
+                view.setPadding(0, 0, 0, 0)
+            }
+            insets
         }
     }
 
@@ -241,6 +266,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 binding.customViewContainer.visibility = View.VISIBLE
                 binding.swipeRefreshLayout.visibility = View.GONE
+                ViewCompat.requestApplyInsets(binding.rootContainer)
             }
 
             override fun onHideCustomView() {
@@ -257,6 +283,7 @@ class MainActivity : AppCompatActivity() {
             customViewCallback?.onCustomViewHidden()
             customView = null
             customViewCallback = null
+            ViewCompat.requestApplyInsets(binding.rootContainer)
         }
     }
 
