@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">نواز لصيانة المكيفات</string>
+    <string name="app_full_name">نواز لصيانة المكيفات والخدمات المنزلية</string>
+    <string name="company_phone">+966543729238</string>
+    <string name="no_internet_title">تعذر الاتصال بالإنترنت</string>
+    <string name="no_internet_desc">يرجى التحقق من اتصالك بالشبكة والمحاولة مرة أخرى للاطلاع على الخدمات وحجز موعد الصيانة.</string>
+    <string name="btn_retry">إعادة المحاولة</string>
+    <string name="btn_direct_call">اتصال هاتفي مباشر: 0543729238</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="whatsapp_not_installed">تطبيق واتساب غير مثبت. جاري الفتح عبر المتصفح...</string>
+</resources>
