@@ -37,7 +37,7 @@ export default function App() {
         {/* Trust, CR, VAT, and National Address */}
         <TrustAndTeam />
 
-        {/* Functional Booking Form connected to MERN backend & WhatsApp */}
+        {/* Functional Booking Form connected directly to WhatsApp & Phone Call */}
         <BookingForm
           selectedService={selectedService}
           setSelectedService={setSelectedService}
