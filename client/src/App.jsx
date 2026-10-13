@@ -24,7 +24,7 @@ export default function App() {
       {/* Sticky Glass Navbar */}
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 pb-24 sm:pb-0">
         {/* Hero Section with Video Showcase */}
         <HeroSection onSelectService={handleSelectService} />
 
@@ -48,7 +48,7 @@ export default function App() {
       <Footer />
 
       {/* Floating Mobile Fast-Action Bar (Fixed at bottom for smartphones) */}
-      <div className="fixed bottom-0 inset-x-0 sm:hidden z-40 bg-[#081226]/95 backdrop-blur-xl border-t border-cyan-500/30 p-3 flex gap-2.5 shadow-2xl">
+      <div className="fixed bottom-0 inset-x-0 sm:hidden z-40 bg-[#081226]/95 backdrop-blur-xl border-t border-cyan-500/30 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))] flex gap-2.5 shadow-2xl">
         <a
           href="tel:+966543729238"
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold text-sm active:scale-95 transition-transform"
