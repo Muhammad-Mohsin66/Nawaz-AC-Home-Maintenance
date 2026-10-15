@@ -1,7 +1,9 @@
 import React from 'react';
 import { Phone, MessageCircle, MapPin, ArrowUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -16,78 +18,78 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[rgba(200,169,106,0.18)]">
           
           {/* Brand Info */}
-          <div className="lg:col-span-5 space-y-4 text-right">
+          <div className="lg:col-span-5 space-y-4 text-start">
             <div className="flex items-center gap-3.5">
               <img
                 src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
-                alt="شعار نواز للصيانة"
+                alt={t.brand.fullName}
                 className="w-13 h-13 rounded-full object-cover ring-1 ring-[rgba(200,169,106,0.4)]"
               />
               <div>
                 <h3 className="text-xl font-display font-medium text-[#F7F3EC]">
-                  نواز لصيانة المكيفات والخدمات المنزلية
+                  {t.brand.fullName}
                 </h3>
                 <span className="text-xs text-[#C8A96A] font-body block mt-0.5">
-                  Nawaz AC & Home Maintenance — الرياض
+                  {t.brand.tagline}
                 </span>
               </div>
             </div>
 
             <p className="text-sm text-[#8BAAC9] font-reading leading-relaxed max-w-md">
-              مؤسسة متخصصة بخبرة تزيد عن 15 عاماً في أعمال صيانة وإصلاح وتركيب المكيفات، والتمديدات الكهربائية، والسباكة، والصيانة المنزلية العامة في مدينة الرياض. نحرص على الدقة، الجودة، وسرعة الاستجابة.
+              {t.footer.aboutBrand}
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <span className="px-3.5 py-1 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#C8A96A] font-body">
-                سجل تجاري: 1010469561
+                {t.footer.crLabel}
               </span>
               <span className="px-3.5 py-1 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#F7F3EC]/90 font-body">
-                الرقم الموحد: 7003768764
+                {t.footer.unifiedLabel}
               </span>
               <span className="px-3.5 py-1 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#C8A96A] font-body">
-                الرقم الضريبي: 310156889300003
+                {t.footer.vatLabel}
               </span>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-3 space-y-3 text-right">
+          <div className="lg:col-span-3 space-y-3 text-start">
             <h4 className="text-base font-display font-medium text-[#F7F3EC] tracking-wide border-b border-[rgba(200,169,106,0.18)] pb-2">
-              روابط سريعة
+              {t.footer.quickLinks}
             </h4>
             <ul className="space-y-2.5 text-sm font-body">
               <li>
                 <a href="#hero" className="text-[#8BAAC9] hover:text-[#C8A96A] transition-luxury">
-                  الرئيسية
+                  {t.nav.home}
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-[#8BAAC9] hover:text-[#C8A96A] transition-luxury">
-                  خدمات التكييف والكهرباء والسباكة
+                  {t.nav.services}
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-[#8BAAC9] hover:text-[#C8A96A] transition-luxury">
-                  من نحن والإشراف الفني
+                  {t.nav.about}
                 </a>
               </li>
               <li>
                 <a href="#trust" className="text-[#8BAAC9] hover:text-[#C8A96A] transition-luxury">
-                  التراخيص والعنوان الوطني
+                  {t.nav.trust}
                 </a>
               </li>
               <li>
                 <a href="#booking" className="text-[#8BAAC9] hover:text-[#C8A96A] transition-luxury">
-                  حجز موعد صيانة
+                  {t.nav.booking}
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Contact Details */}
-          <div className="lg:col-span-4 space-y-3 text-right">
+          <div className="lg:col-span-4 space-y-3 text-start">
             <h4 className="text-base font-display font-medium text-[#F7F3EC] tracking-wide border-b border-[rgba(200,169,106,0.18)] pb-2">
-              معلومات التواصل والموقع
+              {t.footer.contactInfo}
             </h4>
             
             <ul className="space-y-3.5 text-sm font-body">
@@ -95,8 +97,8 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#C8A96A] flex items-center justify-center shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
-                <div className="text-right">
-                  <span className="text-xs text-[#8BAAC9] block">اتصال هاتفي مباشر:</span>
+                <div className="text-start">
+                  <span className="text-xs text-[#8BAAC9] block">{t.footer.phoneDirect}</span>
                   <a href="tel:+966543729238" className="text-[#F7F3EC] hover:text-[#C8A96A] font-medium transition-luxury" dir="ltr">
                     +966 54 372 9238
                   </a>
@@ -107,8 +109,8 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#C8A96A] flex items-center justify-center shrink-0">
                   <MessageCircle className="w-4 h-4" />
                 </div>
-                <div className="text-right">
-                  <span className="text-xs text-[#8BAAC9] block">محادثة واتساب:</span>
+                <div className="text-start">
+                  <span className="text-xs text-[#8BAAC9] block">{t.footer.whatsappChat}</span>
                   <a
                     href="https://wa.me/966543729238"
                     target="_blank"
@@ -126,14 +128,14 @@ export default function Footer() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs text-[#8BAAC9] block">العنوان الوطني المعتمد:</span>
+                  <span className="text-xs text-[#8BAAC9] block">{t.footer.nationalAddress}</span>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=7251+Al+Nafl+Al+Yasmin+Riyadh+13325"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#F7F3EC]/80 hover:text-[#C8A96A] text-xs leading-relaxed block transition-luxury"
                   >
-                    7251 النفل، 4362، حي الياسمين، الرياض 13325 (RAYB7251)
+                    {t.footer.addressText}
                   </a>
                 </div>
               </li>
@@ -144,15 +146,15 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8BAAC9] font-body">
-          <div className="text-right">
-            © {currentYear} مؤسسة نواز لصيانة المكيفات والخدمات المنزلية. جميع الحقوق محفوظة.
+          <div className="text-start">
+            © {currentYear} {t.footer.copyright}
           </div>
           
           <button
             onClick={scrollToTop}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#122336] hover:bg-[#243B53] text-[#F7F3EC] hover:text-[#C8A96A] transition-luxury cursor-pointer border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]"
           >
-            <span>العودة للأعلى</span>
+            <span>{t.footer.backToTop}</span>
             <ArrowUp className="w-3.5 h-3.5 text-[#C8A96A]" />
           </button>
         </div>

@@ -7,9 +7,11 @@ import TrustAndTeam from './components/TrustAndTeam';
 import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
 import { Phone, MessageCircle } from 'lucide-react';
+import { useLanguage } from './context/LanguageContext';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
+  const { t } = useLanguage();
 
   const handleSelectService = (serviceName) => {
     setSelectedService(serviceName);
@@ -21,7 +23,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F7F3EC] text-[#0A1118] flex flex-col font-body">
-      {/* Sticky Quiet Luxury Navbar */}
+      {/* Sticky Quiet Luxury Navbar with Language Dropdown */}
       <Navbar />
 
       <main className="flex-1 pb-24 sm:pb-0">
@@ -54,7 +56,7 @@ export default function App() {
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#F7F3EC] hover:text-[#C8A96A] font-body font-medium text-xs transition-luxury active:scale-95"
         >
           <Phone className="w-3.5 h-3.5 text-[#C8A96A]" />
-          <span>اتصال مباشر</span>
+          <span>{t.nav.directCall}</span>
         </a>
         <a
           href="https://wa.me/966543729238"
@@ -63,7 +65,7 @@ export default function App() {
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-[#C8A96A] hover:bg-[#E4D3A8] text-[#0A1118] font-body font-semibold text-xs transition-luxury shadow-[0_4px_16px_rgba(200,169,106,0.2)] active:scale-95"
         >
           <MessageCircle className="w-3.5 h-3.5" />
-          <span>واتساب فوري</span>
+          <span>{t.nav.whatsappInstant}</span>
         </a>
       </div>
     </div>
