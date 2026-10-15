@@ -186,7 +186,7 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
 
     const url = buildWhatsAppUrl(formData);
 
-    // Direct synchronous navigation triggered directly from user gesture prevents popup blockers
+    // Direct navigation triggered from user gesture
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
       window.location.href = url;
@@ -194,25 +194,25 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
   };
 
   return (
-    <section id="booking" className="py-24 bg-slate-50 border-t border-slate-200 relative">
+    <section id="booking" className="py-24 bg-[#F7F3EC] border-t border-[rgba(200,169,106,0.28)] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs sm:text-sm font-bold">
-            <Calendar className="w-4 h-4 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDE6DA] border border-[rgba(200,169,106,0.28)] text-[#6B6B63] text-xs font-body font-medium">
+            <Calendar className="w-3.5 h-3.5 text-[#C8A96A]" />
             <span>حجز فوري ومباشر</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-normal text-[#0A1118] tracking-tight">
             احجز موعد الصيانة بكل سهولة
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-normal">
+          <p className="text-[#6B6B63] font-reading text-base max-w-xl mx-auto font-normal">
             قم بتعبئة النموذج وسيقوم فريقنا بالتواصل معك لتأكيد الموعد والتفاصيل، أو تواصل فوراً عبر واتساب.
           </p>
         </div>
 
-        {/* Card Frame - Crisp White Luxury Finish */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200 relative">
+        {/* Card Frame - 20px Border Radius & Warm Linen Surface */}
+        <div className="bg-[#EDE6DA] rounded-[20px] p-6 sm:p-10 border border-[rgba(200,169,106,0.28)] relative shadow-none">
           
           <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
             
@@ -220,8 +220,8 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
               
               {/* Full Name */}
               <div className="space-y-2 text-right">
-                <label htmlFor="customerName" className="block text-sm font-bold text-slate-800">
-                  الاسم الكامل <span className="text-rose-500">*</span>
+                <label htmlFor="customerName" className="block text-xs sm:text-sm font-body font-medium text-[#0A1118]">
+                  الاسم الكامل <span className="text-[#9B3D3D]">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -231,21 +231,23 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                     value={formData.customerName}
                     onChange={handleChange}
                     placeholder="مثال: عبد الله السعدي"
-                    className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-50/70 text-slate-900 placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all ${
-                      errors.customerName ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                    className={`w-full py-3.5 pr-11 pl-4 rounded-[14px] border bg-[#F7F3EC] text-[#0A1118] placeholder-[#6B6B63]/60 text-sm focus:outline-none focus:ring-1 transition-luxury ${
+                      errors.customerName
+                        ? 'border-[#9B3D3D] focus:ring-[#9B3D3D]/30'
+                        : 'border-[rgba(200,169,106,0.28)] focus:border-[#C8A96A] focus:ring-[#C8A96A]/30'
                     }`}
                   />
-                  <User className="w-4 h-4 text-slate-400 absolute right-4 top-4" />
+                  <User className="w-4 h-4 text-[#6B6B63] absolute right-4 top-4" />
                 </div>
                 {errors.customerName && (
-                  <p className="text-xs text-rose-600 font-semibold">{errors.customerName}</p>
+                  <p className="text-xs text-[#9B3D3D] font-body mt-1">{errors.customerName}</p>
                 )}
               </div>
 
               {/* Phone Number */}
               <div className="space-y-2 text-right">
-                <label htmlFor="phoneNumber" className="block text-sm font-bold text-slate-800">
-                  رقم الجوال <span className="text-rose-500">*</span>
+                <label htmlFor="phoneNumber" className="block text-xs sm:text-sm font-body font-medium text-[#0A1118]">
+                  رقم الجوال <span className="text-[#9B3D3D]">*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -256,21 +258,23 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                     onChange={handleChange}
                     placeholder="05XXXXXXXX أو +9665XXXXXXXX"
                     dir="ltr"
-                    className={`w-full py-3.5 pr-4 pl-11 rounded-xl border bg-slate-50/70 text-slate-900 placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:bg-white text-right transition-all ${
-                      errors.phoneNumber ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                    className={`w-full py-3.5 pr-4 pl-11 rounded-[14px] border bg-[#F7F3EC] text-[#0A1118] placeholder-[#6B6B63]/60 text-sm focus:outline-none focus:ring-1 text-right transition-luxury ${
+                      errors.phoneNumber
+                        ? 'border-[#9B3D3D] focus:ring-[#9B3D3D]/30'
+                        : 'border-[rgba(200,169,106,0.28)] focus:border-[#C8A96A] focus:ring-[#C8A96A]/30'
                     }`}
                   />
-                  <Phone className="w-4 h-4 text-slate-400 absolute left-4 top-4" />
+                  <Phone className="w-4 h-4 text-[#6B6B63] absolute left-4 top-4" />
                 </div>
                 {errors.phoneNumber && (
-                  <p className="text-xs text-rose-600 font-semibold">{errors.phoneNumber}</p>
+                  <p className="text-xs text-[#9B3D3D] font-body mt-1">{errors.phoneNumber}</p>
                 )}
               </div>
 
               {/* Service Type Selection */}
               <div className="space-y-2 text-right">
-                <label htmlFor="serviceType" className="block text-sm font-bold text-slate-800">
-                  الخدمة المطلوبة <span className="text-rose-500">*</span>
+                <label htmlFor="serviceType" className="block text-xs sm:text-sm font-body font-medium text-[#0A1118]">
+                  الخدمة المطلوبة <span className="text-[#9B3D3D]">*</span>
                 </label>
                 <div className="relative">
                   <select
@@ -278,8 +282,10 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                     name="serviceType"
                     value={formData.serviceType}
                     onChange={handleChange}
-                    className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-50/70 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all appearance-none ${
-                      errors.serviceType ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                    className={`w-full py-3.5 pr-11 pl-4 rounded-[14px] border bg-[#F7F3EC] text-[#0A1118] text-sm focus:outline-none focus:ring-1 transition-luxury appearance-none ${
+                      errors.serviceType
+                        ? 'border-[#9B3D3D] focus:ring-[#9B3D3D]/30'
+                        : 'border-[rgba(200,169,106,0.28)] focus:border-[#C8A96A] focus:ring-[#C8A96A]/30'
                     }`}
                   >
                     <option value="">-- اختر نوع الخدمة --</option>
@@ -289,17 +295,17 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                       </option>
                     ))}
                   </select>
-                  <Wrench className="w-4 h-4 text-slate-400 absolute right-4 top-4 pointer-events-none" />
+                  <Wrench className="w-4 h-4 text-[#6B6B63] absolute right-4 top-4 pointer-events-none" />
                 </div>
                 {errors.serviceType && (
-                  <p className="text-xs text-rose-600 font-semibold">{errors.serviceType}</p>
+                  <p className="text-xs text-[#9B3D3D] font-body mt-1">{errors.serviceType}</p>
                 )}
               </div>
 
               {/* District in Riyadh */}
               <div className="space-y-2 text-right">
-                <label htmlFor="district" className="block text-sm font-bold text-slate-800">
-                  الحي في الرياض <span className="text-rose-500">*</span>
+                <label htmlFor="district" className="block text-xs sm:text-sm font-body font-medium text-[#0A1118]">
+                  الحي في الرياض <span className="text-[#9B3D3D]">*</span>
                 </label>
                 <div className="relative">
                   <select
@@ -307,8 +313,10 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                     name="district"
                     value={formData.district}
                     onChange={handleChange}
-                    className={`w-full py-3.5 pr-11 pl-4 rounded-xl border bg-slate-50/70 text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:bg-white transition-all appearance-none ${
-                      errors.district ? 'border-rose-400 focus:ring-rose-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-100'
+                    className={`w-full py-3.5 pr-11 pl-4 rounded-[14px] border bg-[#F7F3EC] text-[#0A1118] text-sm focus:outline-none focus:ring-1 transition-luxury appearance-none ${
+                      errors.district
+                        ? 'border-[#9B3D3D] focus:ring-[#9B3D3D]/30'
+                        : 'border-[rgba(200,169,106,0.28)] focus:border-[#C8A96A] focus:ring-[#C8A96A]/30'
                     }`}
                   >
                     <option value="">-- اختر الحي في الرياض --</option>
@@ -318,7 +326,7 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                       </option>
                     ))}
                   </select>
-                  <MapPin className="w-4 h-4 text-slate-400 absolute right-4 top-4 pointer-events-none" />
+                  <MapPin className="w-4 h-4 text-[#6B6B63] absolute right-4 top-4 pointer-events-none" />
                 </div>
                 {formData.district === 'أخرى / حي آخر في الرياض' && (
                   <input
@@ -327,11 +335,11 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                     value={formData.customDistrict}
                     onChange={handleChange}
                     placeholder="اكتب اسم الحي الخاص بك في الرياض..."
-                    className="mt-2.5 w-full py-3 px-4 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm"
+                    className="mt-2.5 w-full py-3 px-4 rounded-[14px] border border-[rgba(200,169,106,0.28)] bg-[#F7F3EC] text-[#0A1118] text-sm focus:border-[#C8A96A] focus:outline-none transition-luxury"
                   />
                 )}
                 {errors.district && (
-                  <p className="text-xs text-rose-600 font-semibold">{errors.district}</p>
+                  <p className="text-xs text-[#9B3D3D] font-body mt-1">{errors.district}</p>
                 )}
               </div>
 
@@ -339,8 +347,8 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
 
             {/* Additional Notes */}
             <div className="space-y-2 text-right">
-              <label htmlFor="notes" className="block text-sm font-bold text-slate-800">
-                ملاحظات إضافية أو وصف العطل <span className="text-xs text-slate-400 font-normal">(اختياري)</span>
+              <label htmlFor="notes" className="block text-xs sm:text-sm font-body font-medium text-[#0A1118]">
+                ملاحظات إضافية أو وصف العطل <span className="text-xs text-[#6B6B63] font-normal">(اختياري)</span>
               </label>
               <div className="relative">
                 <textarea
@@ -350,34 +358,34 @@ export default function BookingForm({ selectedService, _setSelectedService }) {
                   value={formData.notes}
                   onChange={handleChange}
                   placeholder="مثال: المكيف يخرج هواء حار فقط، أو يوجد تسرب تحت حوض المطبخ..."
-                  className="w-full py-3.5 pr-11 pl-4 rounded-xl border border-slate-300 bg-slate-50/70 text-slate-900 placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:border-blue-600 focus:ring-blue-100 focus:bg-white transition-all"
+                  className="w-full py-3.5 pr-11 pl-4 rounded-[14px] border border-[rgba(200,169,106,0.28)] bg-[#F7F3EC] text-[#0A1118] placeholder-[#6B6B63]/60 text-sm focus:outline-none focus:ring-1 focus:border-[#C8A96A] focus:ring-[#C8A96A]/30 transition-luxury"
                 />
-                <FileText className="w-4 h-4 text-slate-400 absolute right-4 top-4" />
+                <FileText className="w-4 h-4 text-[#6B6B63] absolute right-4 top-4" />
               </div>
             </div>
 
-            {/* Action Buttons: Exactly Two Contact/Booking Actions */}
+            {/* Action Buttons: Pill-Shaped Buttons */}
             <div className="pt-3 flex flex-col sm:flex-row gap-3.5">
               {/* 1. Primary Action: Book via WhatsApp */}
               <button
                 type="submit"
-                className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-base shadow-lg shadow-emerald-900/30 active:scale-95 transition-all cursor-pointer border border-emerald-400/30"
+                className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full bg-[#C8A96A] hover:bg-[#E4D3A8] text-[#0A1118] font-body font-semibold text-sm sm:text-base shadow-[0_4px_20px_rgba(200,169,106,0.2)] hover:shadow-[0_6px_26px_rgba(200,169,106,0.32)] active:scale-95 transition-luxury cursor-pointer"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4" />
                 <span>احجز عبر واتساب</span>
               </button>
 
               {/* 2. Secondary Action: Direct Phone Call */}
               <a
                 href="tel:+966543729238"
-                className="inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl border border-slate-300 hover:border-slate-400 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-base transition-all active:scale-95 shadow-xs"
+                className="inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A] bg-transparent hover:bg-[#F7F3EC] text-[#0A1118] font-body font-medium text-sm sm:text-base transition-luxury active:scale-95"
               >
-                <Phone className="w-5 h-5 text-cyan-600" />
+                <Phone className="w-4 h-4 text-[#C8A96A]" />
                 <span>اتصل بنا الآن</span>
               </a>
             </div>
 
-            <div className="text-center text-xs text-slate-500 pt-2">
+            <div className="text-center text-xs text-[#6B6B63] pt-2 font-body">
               🔒 بياناتك محفوظة بأمان وسرية تامة ولا يتم مشاركتها مع أي جهة خارجية.
             </div>
 

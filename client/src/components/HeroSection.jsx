@@ -7,93 +7,92 @@ export default function HeroSection({ onSelectService }) {
   const [logoModalOpen, setLogoModalOpen] = useState(false);
 
   return (
-    <section id="hero" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#061022] via-[#091836] to-[#081226]">
-      {/* Dynamic atmospheric light glows */}
-      <div className="absolute top-1/4 right-5 -z-10 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 left-10 -z-10 w-[450px] h-[450px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-5 right-1/3 -z-10 w-[350px] h-[350px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <section id="hero" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-[#0A1118]">
+      {/* Subtle warm atmospheric light glow (replacing bright neon SaaS blurs) */}
+      <div className="absolute top-1/4 right-5 -z-10 w-[550px] h-[550px] bg-[#C8A96A]/6 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 -z-10 w-[480px] h-[480px] bg-[#243B53]/25 rounded-full blur-[130px] pointer-events-none" />
 
-      {/* Subtle geometric tech grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:28px_28px] opacity-20 pointer-events-none" />
+      {/* Subtle hairline editorial grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(200,169,106,0.12)_1px,transparent_1px)] [background-size:36px_36px] opacity-40 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Right Column: Hero Content */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 text-right space-y-6"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 text-right space-y-7"
           >
-            {/* Top Verified Tag with Neon Edge & Logo Preview */}
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-bold shadow-lg shadow-cyan-950/40">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-              <ShieldCheck className="w-4 h-4 text-cyan-400" />
-              <span>مؤسسة مرخصة رسمياً في الرياض • س.ت: 1010469561</span>
+            {/* Top Verified Tag with Hairline Border & Refined Champagne Accent */}
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] text-[#C8A96A] text-xs sm:text-sm font-body font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#C8A96A] animate-pulse"></span>
+              <ShieldCheck className="w-4 h-4 text-[#C8A96A]" />
+              <span className="text-[#F7F3EC]/90">مؤسسة مرخصة رسمياً في الرياض • س.ت: 1010469561</span>
             </div>
 
-            {/* Headline with Gradient */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.25] tracking-tight">
+            {/* Headline with Elegant Serif Typography */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-normal text-[#F7F3EC] leading-[1.2] tracking-tight">
               خدمات التكييف والكهرباء والسباكة والصيانة المنزلية{' '}
-              <span className="blue-gradient-text">في الرياض</span>
+              <span className="champagne-gradient-text italic font-serif">في الرياض</span>
             </h1>
 
-            {/* Supporting Text */}
-            <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl">
+            {/* Supporting Text in Content / Reading Serif Style */}
+            <p className="text-lg sm:text-xl text-[#8BAAC9] font-reading leading-relaxed max-w-2xl font-normal">
               نقدم خدمات الصيانة والإصلاح والتركيب للمنازل، مع سهولة الحجز والتواصل المباشر بأعلى معايير الإتقان والدقة في جميع أحياء العاصمة.
             </p>
 
-            {/* Trust Badges - Luxury Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-amber-500/30">
-                <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-black text-sm">
+            {/* Trust Badges - 20px Cards with Hairline Borders */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+              <div className="flex items-center gap-3 p-4 rounded-[20px] bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]/60 transition-luxury">
+                <div className="w-10 h-10 rounded-full bg-[#243B53]/50 text-[#C8A96A] border border-[rgba(200,169,106,0.28)] flex items-center justify-center shrink-0 font-display font-semibold text-sm">
                   15+
                 </div>
                 <div className="text-right">
-                  <span className="text-xs sm:text-sm font-bold text-white block">خبرة 15 عاماً</span>
-                  <span className="text-[11px] text-amber-300/80">في هذا المجال</span>
+                  <span className="text-xs sm:text-sm font-display font-medium text-[#F7F3EC] block">خبرة 15 عاماً</span>
+                  <span className="text-[11px] text-[#C8A96A]/90 font-body">في هذا المجال</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-cyan-500/20">
-                <div className="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-5 h-5" />
+              <div className="flex items-center gap-3 p-4 rounded-[20px] bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]/60 transition-luxury">
+                <div className="w-10 h-10 rounded-full bg-[#243B53]/50 text-[#C8A96A] border border-[rgba(200,169,106,0.28)] flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <div className="text-right">
-                  <span className="text-xs sm:text-sm font-bold text-white block">صيانة شاملة</span>
-                  <span className="text-[11px] text-slate-400">فحص فوري ودقيق</span>
+                  <span className="text-xs sm:text-sm font-display font-medium text-[#F7F3EC] block">صيانة شاملة</span>
+                  <span className="text-[11px] text-[#8BAAC9] font-body">فحص فوري ودقيق</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-blue-500/20">
-                <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5" />
+              <div className="flex items-center gap-3 p-4 rounded-[20px] bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]/60 transition-luxury">
+                <div className="w-10 h-10 rounded-full bg-[#243B53]/50 text-[#C8A96A] border border-[rgba(200,169,106,0.28)] flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4" />
                 </div>
                 <div className="text-right">
-                  <span className="text-xs sm:text-sm font-bold text-white block">التزام بالمواعيد</span>
-                  <span className="text-[11px] text-slate-400">خدمة سريعة بالرياض</span>
+                  <span className="text-xs sm:text-sm font-display font-medium text-[#F7F3EC] block">التزام بالمواعيد</span>
+                  <span className="text-[11px] text-[#8BAAC9] font-body">خدمة سريعة بالرياض</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl glass-card-dark border border-emerald-500/20">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+              <div className="flex items-center gap-3 p-4 rounded-[20px] bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]/60 transition-luxury">
+                <div className="w-10 h-10 rounded-full bg-[#243B53]/50 text-[#C8A96A] border border-[rgba(200,169,106,0.28)] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-right">
-                  <span className="text-xs sm:text-sm font-bold text-white block">تغطية العاصمة</span>
-                  <span className="text-[11px] text-slate-400">كافة أحياء الرياض</span>
+                  <span className="text-xs sm:text-sm font-display font-medium text-[#F7F3EC] block">تغطية العاصمة</span>
+                  <span className="text-[11px] text-[#8BAAC9] font-body">كافة أحياء الرياض</span>
                 </div>
               </div>
             </div>
 
-            {/* Call To Actions with Neon Glows */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-4">
+            {/* Call To Actions - Pill Shaped Quiet Luxury Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <a
                 href="#booking"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-base shadow-xl shadow-blue-600/30 transition-all transform hover:-translate-y-0.5 border border-cyan-300/30"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#C8A96A] hover:bg-[#E4D3A8] text-[#0A1118] font-body font-semibold text-sm transition-luxury shadow-[0_4px_20px_rgba(200,169,106,0.2)] hover:shadow-[0_6px_28px_rgba(200,169,106,0.32)] hover:-translate-y-0.5 active:scale-95"
               >
-                <Calendar className="w-5 h-5 text-cyan-200" />
+                <Calendar className="w-4 h-4" />
                 <span>احجز خدمتك الآن</span>
               </a>
 
@@ -101,48 +100,48 @@ export default function HeroSection({ onSelectService }) {
                 href="https://wa.me/966543729238"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-base shadow-xl shadow-emerald-950/40 transition-all transform hover:-translate-y-0.5 border border-emerald-400/30"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full border border-[rgba(200,169,106,0.28)] bg-transparent hover:bg-[#C8A96A]/10 text-[#C8A96A] hover:text-[#E4D3A8] hover:border-[#C8A96A] font-body font-medium text-sm transition-luxury hover:-translate-y-0.5 active:scale-95"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4" />
                 <span>تواصل عبر واتساب</span>
               </a>
 
               <a
                 href="tel:+966543729238"
-                className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white font-bold text-base transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-[rgba(200,169,106,0.28)] bg-[#122336] hover:bg-[#243B53] text-[#F7F3EC] hover:text-[#C8A96A] hover:border-[#C8A96A] font-body font-medium text-sm transition-luxury active:scale-95"
               >
-                <Phone className="w-4 h-4 text-cyan-400" />
+                <Phone className="w-4 h-4 text-[#C8A96A]" />
                 <span dir="ltr">054 372 9238</span>
               </a>
             </div>
 
             {/* Quick Service Interactive Pills */}
-            <div className="pt-2 flex flex-wrap gap-2.5 items-center text-xs text-slate-400 font-medium">
-              <span className="text-cyan-300 font-bold flex items-center gap-1">
+            <div className="pt-2 flex flex-wrap gap-2.5 items-center text-xs text-[#8BAAC9] font-body font-normal">
+              <span className="text-[#C8A96A] font-medium flex items-center gap-1.5 pl-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 الخدمات السريعة:
               </span>
               <button
                 onClick={() => onSelectService('خدمات التكييف')}
-                className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A] hover:text-[#C8A96A] hover:bg-[#243B53]/40 transition-luxury cursor-pointer"
               >
                 صيانة مكيفات سبليت
               </button>
               <button
                 onClick={() => onSelectService('خدمات الكهرباء')}
-                className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-700 hover:border-amber-400 hover:text-amber-300 transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A] hover:text-[#C8A96A] hover:bg-[#243B53]/40 transition-luxury cursor-pointer"
               >
                 إصلاح أعطال الكهرباء
               </button>
               <button
                 onClick={() => onSelectService('خدمات السباكة')}
-                className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A] hover:text-[#C8A96A] hover:bg-[#243B53]/40 transition-luxury cursor-pointer"
               >
                 معالجة تسربات المياه
               </button>
               <button
                 onClick={() => onSelectService('خدمات الصيانة المنزلية')}
-                className="px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-700 hover:border-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 rounded-full bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A] hover:text-[#C8A96A] hover:bg-[#243B53]/40 transition-luxury cursor-pointer"
               >
                 صيانة عامة دورية
               </button>
@@ -151,44 +150,44 @@ export default function HeroSection({ onSelectService }) {
 
           {/* Left Column: Prominent Media Showcase (Official Logo + Promotional Video) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 space-y-4"
           >
-            {/* 1. Prominent Official 3D Logo Showcase Card */}
-            <div className="relative rounded-3xl p-4 bg-gradient-to-br from-[#0e244d] to-[#08152e] border-2 border-cyan-400/40 shadow-2xl overflow-hidden group">
+            {/* 1. Official Logo Showcase Card */}
+            <div className="relative rounded-[20px] p-5 bg-[#122336] border border-[rgba(200,169,106,0.28)] hover:border-[#C8A96A]/60 transition-luxury group">
               <div className="flex items-center gap-4">
                 {/* Logo Image */}
                 <div
                   onClick={() => setLogoModalOpen(true)}
-                  className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-xl ring-2 ring-cyan-400/60 shrink-0 cursor-pointer group-hover:scale-105 transition-transform bg-white p-1"
+                  className="relative w-22 h-22 sm:w-24 sm:h-24 rounded-[16px] overflow-hidden border border-[rgba(200,169,106,0.28)] shrink-0 cursor-pointer group-hover:scale-105 transition-luxury bg-[#F7F3EC] p-1.5"
                   title="انقر لتكبير الشعار"
                 >
                   <img
                     src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
                     alt="شعار مؤسسة نواز لصيانة المكيفات والخدمات المنزلية"
-                    className="w-full h-full object-contain rounded-xl"
+                    className="w-full h-full object-contain rounded-[12px]"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-xl">
-                    <Maximize2 className="w-5 h-5 text-white" />
+                  <div className="absolute inset-0 bg-[#0A1118]/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-luxury rounded-[12px]">
+                    <Maximize2 className="w-5 h-5 text-[#C8A96A]" />
                   </div>
                 </div>
 
                 {/* Logo Brand Details */}
                 <div className="text-right flex-1">
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 inline-block mb-1">
+                  <span className="text-[11px] font-medium px-3 py-0.5 rounded-full bg-[#0A1118] text-[#C8A96A] border border-[rgba(200,169,106,0.28)] inline-block mb-1.5">
                     الشعار والهوية المعتمدة
                   </span>
-                  <h3 className="text-base sm:text-lg font-black text-white leading-snug">
+                  <h3 className="text-base sm:text-lg font-display font-medium text-[#F7F3EC] leading-snug">
                     نواز لصيانة المكيفات والخدمات المنزلية
                   </h3>
-                  <p className="text-xs text-slate-300 mt-1">
+                  <p className="text-xs text-[#8BAAC9] mt-1 font-body">
                     المؤسسة المعتمدة لأعمال التكييف والسباكة والكهرباء بالرياض
                   </p>
                   <button
                     onClick={() => setLogoModalOpen(true)}
-                    className="mt-2 inline-flex items-center gap-1.5 text-xs text-cyan-300 hover:text-white font-bold cursor-pointer"
+                    className="mt-2.5 inline-flex items-center gap-1.5 text-xs text-[#C8A96A] hover:text-[#E4D3A8] font-medium transition-luxury cursor-pointer"
                   >
                     <Maximize2 className="w-3.5 h-3.5" />
                     <span>عرض الشعار بحجم كامل</span>
@@ -198,7 +197,7 @@ export default function HeroSection({ onSelectService }) {
             </div>
 
             {/* 2. Promotional Video Frame */}
-            <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl bg-slate-950 aspect-[9/16] max-h-[460px] mx-auto max-w-[340px] sm:max-w-[360px] group">
+            <div className="relative rounded-[20px] overflow-hidden border border-[rgba(200,169,106,0.28)] bg-[#0A1118] aspect-[9/16] max-h-[460px] mx-auto max-w-[340px] sm:max-w-[360px] group transition-luxury hover:border-[#C8A96A]/60">
               {!videoError ? (
                 <video
                   src={`${import.meta.env.BASE_URL}videos/promo.mp4`}
@@ -211,28 +210,28 @@ export default function HeroSection({ onSelectService }) {
                   متصفحك لا يدعم تشغيل الفيديو.
                 </video>
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-slate-950 text-white">
-                  <Play className="w-12 h-12 text-cyan-400 mb-3" />
-                  <p className="text-sm font-semibold">فيديو تعريفي بخدمات نواز</p>
-                  <p className="text-xs text-slate-400 mt-2">اتصل بنا مباشرة للحصول على الاستشارة الفورية</p>
+                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#0A1118] text-[#F7F3EC]">
+                  <Play className="w-10 h-10 text-[#C8A96A] mb-3" />
+                  <p className="text-sm font-display">فيديو تعريفي بخدمات نواز</p>
+                  <p className="text-xs text-[#8BAAC9] mt-2">اتصل بنا مباشرة للحصول على الاستشارة الفورية</p>
                 </div>
               )}
 
               {/* Overlay Badge */}
-              <div className="absolute top-3.5 right-3.5 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-cyan-500/30 text-white text-xs font-semibold flex items-center gap-2 pointer-events-none">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <div className="absolute top-3.5 right-3.5 bg-[#0A1118]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[rgba(200,169,106,0.28)] text-[#F7F3EC] text-xs font-medium flex items-center gap-2 pointer-events-none">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8A96A] animate-pulse"></span>
                 <span>فيديو تعريفي مباشر</span>
               </div>
             </div>
 
             {/* Floating Trust Indicator Card */}
-            <div className="hidden sm:flex bg-[#0d1d3a] p-3.5 rounded-2xl border border-cyan-400/30 shadow-xl items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md">
+            <div className="hidden sm:flex bg-[#122336] p-4 rounded-[20px] border border-[rgba(200,169,106,0.28)] items-center gap-3.5 transition-luxury hover:border-[#C8A96A]/60">
+              <div className="w-10 h-10 rounded-full bg-[#243B53] border border-[rgba(200,169,106,0.28)] flex items-center justify-center text-[#C8A96A] shrink-0">
                 <Award className="w-5 h-5" />
               </div>
               <div className="text-right">
-                <div className="text-xs font-bold text-white">إشراف فني متخصص — خبرة 15 عاماً بالمجال</div>
-                <div className="text-xs text-cyan-300 font-semibold">م. نواز أمين (M. Nawaz Ameen)</div>
+                <div className="text-xs font-body font-medium text-[#F7F3EC]">إشراف فني متخصص — خبرة 15 عاماً بالمجال</div>
+                <div className="text-xs text-[#C8A96A] font-body mt-0.5">م. نواز أمين (M. Nawaz Ameen)</div>
               </div>
             </div>
           </motion.div>
@@ -243,33 +242,34 @@ export default function HeroSection({ onSelectService }) {
       {/* High-Res Logo Modal Lightbox */}
       <AnimatePresence>
         {logoModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0A1118]/85 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="relative max-w-lg w-full bg-[#0a1835] rounded-3xl p-6 border-2 border-cyan-400/50 shadow-2xl text-center space-y-4"
+              exit={{ opacity: 0, scale: 0.94 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative max-w-lg w-full bg-[#122336] rounded-[20px] p-7 border border-[rgba(200,169,106,0.35)] shadow-2xl text-center space-y-4"
             >
               <button
                 onClick={() => setLogoModalOpen(false)}
-                className="absolute top-4 left-4 p-2 text-slate-400 hover:text-white rounded-xl bg-slate-900 border border-slate-700 cursor-pointer"
+                className="absolute top-4 left-4 p-2 text-[#8BAAC9] hover:text-[#F7F3EC] rounded-full bg-[#0A1118] border border-[rgba(200,169,106,0.28)] transition-luxury cursor-pointer"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
 
-              <h3 className="text-lg font-black text-white">
+              <h3 className="text-lg font-display font-medium text-[#F7F3EC]">
                 الشعار الرسمي لمؤسسة نواز للصيانة المنزلية
               </h3>
 
-              <div className="rounded-2xl overflow-hidden bg-white p-4 shadow-xl max-w-sm mx-auto">
+              <div className="rounded-[16px] overflow-hidden bg-[#F7F3EC] p-4 border border-[rgba(200,169,106,0.28)] max-w-sm mx-auto">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo.jpeg`}
                   alt="شعار مؤسسة نواز"
-                  className="w-full h-auto object-contain rounded-xl"
+                  className="w-full h-auto object-contain rounded-[12px]"
                 />
               </div>
 
-              <p className="text-xs text-cyan-300">
+              <p className="text-xs text-[#C8A96A] font-body">
                 هوية رسمية مسجلة • الرياض، المملكة العربية السعودية
               </p>
             </motion.div>
